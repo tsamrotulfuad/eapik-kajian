@@ -16,7 +16,9 @@ class HomeController extends Controller
             ->limit(4)
             ->get();
 
-        $daftarKajian = Kajian::all();
+        $daftarKajian = DB::table('kajians')
+            ->orderBy('tahun', 'desc')
+            ->paginate(6);
 
         $tahun = Carbon::now()->isoFormat('Y');
         // return dd($kajianTerbaru);
