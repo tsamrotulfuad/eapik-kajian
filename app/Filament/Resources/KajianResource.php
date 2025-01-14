@@ -9,14 +9,15 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\KajianResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\KajianResource\RelationManagers;
-use Filament\Tables\Columns\TextColumn;
 
 class KajianResource extends Resource
 {
@@ -25,6 +26,8 @@ class KajianResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     protected static ?string $navigationLabel = 'Kajian';
+
+    protected static ?string $breadcrumb = "Kajian Daerah";
 
     public static function form(Form $form): Form
     {
@@ -61,6 +64,9 @@ class KajianResource extends Resource
     {
         return $table
             ->columns([
+                ImageColumn::make('cover')
+                ->width(75)
+                ->height(125),
                 TextColumn::make('nama')
                 ->label('Nama')
                 ->searchable(),
@@ -71,6 +77,7 @@ class KajianResource extends Resource
                 ->searchable()
                 ->sortable(),
             ])
+            ->emptyStateHeading('Tidak ada data kajian')
             ->filters([
                 //
             ])

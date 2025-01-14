@@ -13,7 +13,13 @@ class ListKajians extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+            ->label('Tambah Kajian'),
         ];
+    }
+
+    public function getTitle() : string
+    {
+        return "List Kajian";
     }
 }
