@@ -13,6 +13,7 @@ class HomeController extends Controller
     {
         $kajianTerbaru = DB::table('kajians')
             ->orderBy('tahun', 'desc')
+            ->limit(4)
             ->get();
 
         $daftarKajian = Kajian::all();
