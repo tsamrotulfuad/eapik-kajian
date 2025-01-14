@@ -15,7 +15,7 @@ class HomeController extends Controller
         $daftarKajian = Kajian::all();
 
         $tahun = Carbon::now()->isoFormat('Y');
-        return dd($kajianTerbaru);
+        // return dd($kajianTerbaru);
         return view('welcome', compact('kajianTerbaru', 'daftarKajian', 'tahun'));
     }
 
