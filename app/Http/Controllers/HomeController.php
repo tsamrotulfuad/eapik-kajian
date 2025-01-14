@@ -10,13 +10,13 @@ class HomeController extends Controller
 {
     public function index() 
     {
-        $kajianTerbaru = Kajian::latest(2);
+        $kajianTerbaru = Kajian::latest()->limit(4)->get();
 
         $daftarKajian = Kajian::all();
 
         $tahun = Carbon::now()->isoFormat('Y');
-
-        return view('welcome', compact('daftarKajian', 'tahun'));
+        // return dd($kajianTerbaru);
+        return view('welcome', compact('kajianTerbaru', 'daftarKajian', 'tahun'));
     }
 
 }

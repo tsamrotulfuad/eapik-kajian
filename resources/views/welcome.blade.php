@@ -4,9 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>E-APIK - Bappelitbangda Kota Pasuruan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bs/navbar-fixed.css')}}">
+    <style>
+        .swiper {
+  width: 600px;
+  height: 300px;
+}
+    </style>
 </head>
 
 <body>
@@ -21,22 +27,28 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" aria-current="page" href="#">Archives</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" aria-current="page" href="#">About</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <main>
-        <div class="container py-5">
-            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="container py-3">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-3">
                 <div class="col-10 col-sm-8 col-lg-6">
-                    <img src="{{ asset('img/bootstrap-themes.png') }}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                    <img src="{{ asset('img/kajian_litbang.png') }}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
                 </div>
                 <div class="col-lg-6">
                     <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">E-APIK</h1>
                     <p class="display-6 fw-semibold text-body-emphasis lh-1 mb-3">Kajian</p>
                     <p class="lead">Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah Kota Pasuruan</p>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-5">
                         <button type="button" class="btn btn-primary btn-md px-4 me-md-2">Telusuri</button>
                     </div>
                 </div>
@@ -48,34 +60,19 @@
                 Kajian Terbaru
             </div>
             <div class="row mb-2">
+                @foreach ($kajianTerbaru as $data)
                 <div class="col-md-6">
                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
-                            <h3 class="mb-2">Featured post</h3>
-                            <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                            <h4 class="mb-2">{{ $data->nama }}</h4>
+                            <p class="card-text mb-auto">{{ $data->bidang }}</p>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
+                        <img src="{{ asset('storage/'.$data->cover)}}" class="img-fluid mx-auto d-block" alt="kajian" style="height: 250px; width: 200px;">
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <h3 class="mb-2">Post title</h3>
-                            <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
         <!-- Kajian Bidang  -->
@@ -160,9 +157,7 @@
             <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
                 <div class="col mb-3">
                     <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-                        <svg class="bi me-2" width="40" height="32">
-                            <use xlink:href="#bootstrap" />
-                        </svg>
+                        <img src="{{ asset('img/apik-logo.jpg') }}" width="150px">
                     </a>
                     <p class="text-body-secondary">&copy; {{ $tahun }} </p>
                 </div>
@@ -172,35 +167,25 @@
                 </div>
 
                 <div class="col mb-3">
-                    <h5>Section</h5>
+                    <h5>Kontak Kami</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                        <li class="nav-item mb-2">Bappelitbangda Kota Pasuruan</li>
+                        <li class="nav-item mb-2">Jl. Sultan Agung No. 32 Kota Pasuruan</li>
+                        <li class="nav-item mb-2">bappelitbangda@pasuruankota.go.id</li>
                     </ul>
                 </div>
 
                 <div class="col mb-3">
-                    <h5>Section</h5>
+                    <h5>Situs Terkait</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pemerintah Kota Pasuruan</a></li>
                     </ul>
                 </div>
 
                 <div class="col mb-3">
-                    <h5>Section</h5>
+                    <h5>Situs</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Website resmi Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah Kota Pasuruan</a></li>
                     </ul>
                 </div>
             </footer>
@@ -211,7 +196,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script>
-        
+
     </script>
 </body>
 
