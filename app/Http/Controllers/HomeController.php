@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kajian;
 use Carbon\Carbon;
+use App\Models\Kajian;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function index() 
     {
-        $kajianTerbaru = Kajian::latest()->limit(4)->orderBy('tahun', 'desc')->get();
+        $kajianTerbaru = DB::table('kajians')
+            ->orderBy('tahun', 'desc')
+            ->get();
 
         $daftarKajian = Kajian::all();
 
