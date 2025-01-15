@@ -16,10 +16,6 @@
             margin-top: 55px;
         }
 
-        .daftar-kajian {
-            
-        }
-
         .paginate-daftar-kajian {
             margin-top: 55px;
             margin-bottom: 55px;
