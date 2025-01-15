@@ -8,10 +8,27 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bs/navbar-fixed.css')}}">
     <style>
-        .swiper {
-  width: 600px;
-  height: 300px;
-}
+        .kajian-bidang {
+            margin-top: 55px;
+        }
+
+        .daftar-bidang {
+            margin-top: 55px;
+        }
+
+        .daftar-kajian {
+            
+        }
+
+        .paginate-daftar-kajian {
+            margin-top: 55px;
+            margin-bottom: 55px;
+            display: flex;
+            justify-content: center;
+        }
+        a {
+            text-decoration-line: none;
+        }
     </style>
 </head>
 
@@ -77,7 +94,7 @@
         </div>
         <!-- Kajian Bidang  -->
         <div class="container">
-            <div class="fs-3 fw-semibold mb-3">
+            <div class="fs-3 fw-semibold mb-3 kajian-bidang">
                 Kajian Bidang
             </div>
             <div class="row mb-3">
@@ -132,13 +149,14 @@
             <div class="fs-3 fw-semibold mb-3">
                 Daftar Kajian
             </div>
-            <div class="row mb-3">
-                @foreach ($daftarKajian as $data)       
+            <div class="row mb-3 g-2 me-auto">
+                @foreach ($daftarKajian as $data)
                 <div class="col-sm-4 mb-3 mb-sm-0">
-                    <div class="card mb-3 border-0" style="max-width: 540px;">
+                    <a href="{{ $data->link }}" target="_blank">  
+                    <div class="card border-0" style="max-width: 540px; margin-bottom: 55px">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src="{{ asset('storage/'.$data->cover)}}" class="img-fluid rounded mx-auto d-block" alt="kajian" style="height: 200px">
+                                <img src="{{ asset('storage/'.$data->cover)}}" class="img-fluid rounded mx-auto d-block" alt="kajian" style="height: 200px; width: 150px">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -149,10 +167,13 @@
                             </div>
                         </div>
                     </div>
+                    </a> 
                 </div>
                 @endforeach
             </div>
-            {{ $daftarKajian->links() }}
+            <div class="paginate-daftar-kajian">
+                {{ $daftarKajian->links() }}
+            </div>
         </div>
         <div class="container">
             <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
@@ -179,14 +200,14 @@
                 <div class="col mb-3">
                     <h5>Situs Terkait</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pemerintah Kota Pasuruan</a></li>
+                        <li class="nav-item mb-2"><a href="https://pasuruankota.go.id/" target="_blank" class="nav-link p-0 text-body-secondary">Pemerintah Kota Pasuruan</a></li>
                     </ul>
                 </div>
 
                 <div class="col mb-3">
                     <h5>Situs</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Website resmi Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah Kota Pasuruan</a></li>
+                        <li class="nav-item mb-2"><a href="https://bappelitbangda.pasuruankota.go.id/" target="_blank" class="nav-link p-0 text-body-secondary">Website resmi Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah Kota Pasuruan</a></li>
                     </ul>
                 </div>
             </footer>
