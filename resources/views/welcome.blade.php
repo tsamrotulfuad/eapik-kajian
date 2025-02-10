@@ -24,6 +24,7 @@
         }
         a {
             text-decoration-line: none;
+            color: inherit;
         }
     </style>
 </head>
@@ -59,10 +60,10 @@
                 </div>
                 <div class="col-lg-6">
                     <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">E-APIK</h1>
-                    <p class="display-6 fw-semibold text-body-emphasis lh-1 mb-3">Kajian</p>
+                    <p class="display-6 fw-semibold text-body-emphasis lh-1 mb-3"></p>
                     <p class="lead">Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah Kota Pasuruan</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-5">
-                        <button type="button" class="btn btn-primary btn-md px-4 me-md-2">Telusuri</button>
+                        <a href="#daftar-kajian" class="btn btn-primary btn-md px-4 me-md-2">Telusuri</a>
                     </div>
                 </div>
             </div>
@@ -75,15 +76,17 @@
             <div class="row mb-2">
                 @foreach ($kajianTerbaru as $data)
                 <div class="col-md-6">
+                    <a href="{{ $data->link }}" target="_blank">
                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
                             <h4 class="mb-2">{{ $data->nama }}</h4>
                             <p class="card-text mb-auto">{{ $data->bidang }}</p>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                        <img src="{{ asset('storage/'.$data->cover)}}" class="img-fluid mx-auto d-block" alt="kajian" style="height: 250px; width: 200px;">
+                            <img src="{{ asset('storage/'.$data->cover)}}" class="img-fluid mx-auto d-block" alt="kajian" style="height: 250px; width: 200px;">
                         </div>
                     </div>
+                    </a>
                 </div>
                 @endforeach
             </div>
@@ -141,7 +144,7 @@
             </div>
         </div>
         <!-- Daftar Kajian -->
-        <div class="container mt-5">
+        <div class="container mt-5" id="daftar-kajian">
             <div class="fs-3 fw-semibold mb-3">
                 Daftar Kajian
             </div>

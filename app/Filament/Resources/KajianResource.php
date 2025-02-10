@@ -69,7 +69,8 @@ class KajianResource extends Resource
                 ->height(125),
                 TextColumn::make('nama')
                 ->label('Nama')
-                ->searchable(),
+                ->searchable()
+                ->wrap(),
                 TextColumn::make('bidang')
                 ->label('Bidang'),
                 TextColumn::make('tahun')
