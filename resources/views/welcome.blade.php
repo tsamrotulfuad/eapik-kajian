@@ -39,13 +39,13 @@
             <div class="collapse navbar-collapse mx-3" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link px-3 {{ $status }}" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3" aria-current="page" href="#">Archives</a>
+                        <a class="nav-link px-3 {{ $status }}" aria-current="page" href="{{ route('archives') }}">Archives</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3" aria-current="page" href="#">About</a>
+                        <a class="nav-link px-3 {{ $status }}" aria-current="page" href="#">About</a>
                     </li>
                 </ul>
             </div>

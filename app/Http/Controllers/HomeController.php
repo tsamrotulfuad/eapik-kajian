@@ -11,6 +11,7 @@ class HomeController extends Controller
 {
     public function index() 
     {
+        $status = 'Active';
         $kajianTerbaru = DB::table('kajians')
             ->orderBy('tahun', 'desc')
             ->limit(4)
@@ -21,8 +22,15 @@ class HomeController extends Controller
             ->paginate(6);
 
         $tahun = Carbon::now()->isoFormat('Y');
-        // return dd($kajianTerbaru);
-        return view('welcome', compact('kajianTerbaru', 'daftarKajian', 'tahun'));
+        return view('welcome', compact('status', 'kajianTerbaru', 'daftarKajian', 'tahun'));
+    }
+
+    public function archives()
+    {
+        $status = 'Active';
+        $listKajian = Kajian::all();
+
+        return view('archives', compact('status', 'listKajian'));
     }
 
 }
