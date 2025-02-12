@@ -66,6 +66,7 @@
         var table = $('#data-kajian').DataTable({
             processing: true,
             serverSide: true,
+            iDisplayLength: 15,
             ajax: "{{ route('data.kajian') }}",
             columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex'},
