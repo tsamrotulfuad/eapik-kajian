@@ -6,9 +6,9 @@
             <img src="{{ asset('img/kajian_litbang.png') }}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
         </div>
         <div class="col-lg-6">
-            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">E-APIK</h1>
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">E-APIK</h1><h3>BAPPELITBANGDA</h3>
             <p class="display-6 fw-semibold text-body-emphasis lh-1 mb-3"></p>
-            <p class="lead">Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah Kota Pasuruan</p>
+            <p class="lead">E-Kajian adalah platform online yang menyediakan berbagai informasi, artikel, dan sumber daya terkait dengan topik-topik kajian atau penelitian dalam berbagai bidang. Website ini bertujuan untuk memfasilitasi pengguna dalam mengakses bahan kajian, studi literatur, serta hasil riset yang relevan. </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-5">
                 <a href="#daftar-kajian" class="btn btn-primary btn-md px-4 me-md-2">Telusuri</a>
             </div>
@@ -38,62 +38,20 @@
         @endforeach
     </div>
 </div>
-<!-- Kajian Bidang  -->
-<div class="container">
-    <div class="fs-3 fw-semibold mb-3 kajian-bidang">
-        Kajian Bidang
-    </div>
-    <div class="row mb-3">
-        <div class="col-sm-3 mb-3 mb-sm-0 mt-2">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h5 class="card-title">
-                        <div class="d-flex align-items-center">
-                            Penelitian dan Pengembangan
-                        </div>
-                    </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3 mb-3 mb-sm-0 mt-2">
-            <div class="card text-center">
-                <div class="card-body text-center">
-                    <h5 class="card-title">
-                        <div class="d-flex align-items-center">
-                            Pembangunan Sosial, Budaya dan Pemerintahan
-                        </div>
-                    </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3 mb-3 mb-sm-0 mt-2">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title text-center">
-                        <div class="d-flex align-items-center">
-                            Perencanaan Pembangunan Ekonomi
-                        </div>
-                    </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3 mb-3 mb-sm-0 mt-2">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title text-center">
-                        <div class="d-flex align-items-center">
-                            Pengembangan Wilayah Perkotaan
-                        </div>
-                    </h5>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Daftar Kajian -->
 <div class="container mt-5" id="daftar-kajian">
     <div class="fs-3 fw-semibold mb-3">
-        Daftar Kajian
+        <div class="row">
+            <div class="col col-sm-8">
+                Daftar Kajian
+            </div>
+            <div class="col">
+               
+            </div>
+            <div class="col">
+                Column
+            </div>
+        </div>
     </div>
     <div class="row mb-3 g-2 me-auto">
         @foreach ($daftarKajian as $data)
