@@ -36,7 +36,9 @@ class HomeController extends Controller
 
     public function getDataKajian(Request $request)
     {
-       $data = Kajian::all();
+       $data =  DB::table('kajians')
+                    ->orderBy('tahun', 'desc')
+                    ->get();
        if ($request->ajax()) {
            return DataTables::of($data)
            ->addIndexColumn()
