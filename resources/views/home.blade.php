@@ -6,7 +6,8 @@
             <img src="{{ asset('img/kajian_litbang.png') }}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
         </div>
         <div class="col-lg-6">
-            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">E-APIK</h1><h3>BAPPELITBANGDA</h3>
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">E-Kajian</h1>
+            <h3>BAPPELITBANGDA Kota Pasuruan</h3>
             <p class="display-6 fw-semibold text-body-emphasis lh-1 mb-3"></p>
             <p class="lead">E-Kajian adalah platform online yang menyediakan berbagai informasi, artikel, dan sumber daya terkait dengan topik-topik kajian atau penelitian dalam berbagai bidang. Website ini bertujuan untuk memfasilitasi pengguna dalam mengakses bahan kajian, studi literatur, serta hasil riset yang relevan. </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-5">
@@ -42,14 +43,24 @@
 <div class="container mt-5" id="daftar-kajian">
     <div class="fs-3 fw-semibold mb-3">
         <div class="row">
-            <div class="col col-sm-8">
+            <div class="col col-sm-6">
                 Daftar Kajian
             </div>
             <div class="col">
-               
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Bidang</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
             </div>
             <div class="col">
-                Column
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Tahun</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
             </div>
         </div>
     </div>
@@ -81,18 +92,14 @@
 </div>
 <div class="container">
     <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-        <div class="col mb-3">
+        <div class="col mb-3 mx-3">
             <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
                 <img src="{{ asset('img/apik-logo.jpg') }}" width="150px">
             </a>
             <p class="text-body-secondary">&copy; {{ $tahun }} </p>
         </div>
 
-        <div class="col mb-3">
-
-        </div>
-
-        <div class="col mb-3">
+        <div class="col mb-3 mx-3">
             <h5>Kontak Kami</h5>
             <ul class="nav flex-column">
                 <li class="nav-item mb-2">Bappelitbangda Kota Pasuruan</li>
@@ -101,14 +108,14 @@
             </ul>
         </div>
 
-        <div class="col mb-3">
+        <div class="col mb-3 mx-2">
             <h5>Situs Terkait</h5>
             <ul class="nav flex-column">
                 <li class="nav-item mb-2"><a href="https://pasuruankota.go.id/" target="_blank" class="nav-link p-0 text-body-secondary">Pemerintah Kota Pasuruan</a></li>
             </ul>
         </div>
 
-        <div class="col mb-3">
+        <div class="col mb-3 mx-3">
             <h5>Situs</h5>
             <ul class="nav flex-column">
                 <li class="nav-item mb-2"><a href="https://bappelitbangda.pasuruankota.go.id/" target="_blank" class="nav-link p-0 text-body-secondary">Website resmi Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah Kota Pasuruan</a></li>

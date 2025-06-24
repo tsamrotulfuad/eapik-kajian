@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\KajianResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\KajianResource\RelationManagers;
+use App\Models\Bidang;
+use App\Models\Tahun;
 
 class KajianResource extends Resource
 {
@@ -34,29 +36,20 @@ class KajianResource extends Resource
         return $form
             ->schema([
                 TextInput::make('nama')
-                ->required(),
+                    ->required(),
                 TextInput::make('link'),
                 FileUpload::make('file')
-                ->preserveFilenames(),
+                    ->preserveFilenames(),
                 Select::make('bidang')
-                ->options([
-                    'Penelitian dan Pengembangan' => 'Penelitian dan Pengembangan',
-                    'Sekretariat' => 'Sekretariat',
-                    'Perencanaan Pembangunan Ekonomi' => 'Perencanaan Pembangunan Ekonomi',
-                    'Perencanaan Pembangunan Sosial Budaya dan Pemerintahan' => 'Perencanaan Pembangunan Sosial Budaya dan Pemerintahan',
-                    'Perencanaan Pengembangan Wilayah Perkotaan' => 'Perencanaan Pengembangan Wilayah Perkotaan',
-                ])->native(false)->required(),
+                    ->label('Bidang')
+                    ->options(Bidang::all()->pluck('keterangan', 'id'))
+                    ->native(false),
                 FileUpload::make('cover')
-                ->preserveFilenames(),
+                    ->preserveFilenames(),
                 Select::make('tahun')
-                ->options([
-                    '2024' => '2024',
-                    '2023' => '2023',
-                    '2022' => '2022',
-                    '2021' => '2021',
-                    '2020' => '2020',
-                    '2019' => '2019',
-                ])->native(false)->required(),
+                    ->label('Tahun')
+                    ->options(Tahun::all()->pluck('title', 'id'))
+                    ->native(false),
             ]);
     }
 
@@ -65,18 +58,18 @@ class KajianResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('cover')
-                ->width(75)
-                ->height(125),
+                    ->width(75)
+                    ->height(125),
                 TextColumn::make('nama')
-                ->label('Nama')
-                ->searchable()
-                ->wrap(),
+                    ->label('Nama')
+                    ->searchable()
+                    ->wrap(),
                 TextColumn::make('bidang')
-                ->label('Bidang'),
+                    ->label('Bidang'),
                 TextColumn::make('tahun')
-                ->label('Tahun')
-                ->searchable()
-                ->sortable(),
+                    ->label('Tahun')
+                    ->searchable()
+                    ->sortable(),
             ])
             ->emptyStateHeading('Tidak ada data kajian')
             ->filters([
@@ -89,12 +82,12 @@ class KajianResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make()
-                    ->after(function (Kajian $record) {
-                        // delete single
-                        if ($record->file) {
-                            Storage::disk('public')->delete($record->file);
-                        }
-                    }),
+                        ->after(function (Kajian $record) {
+                            // delete single
+                            if ($record->file) {
+                                Storage::disk('public')->delete($record->file);
+                            }
+                        }),
                 ]),
             ]);
     }
